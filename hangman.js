@@ -1,5 +1,5 @@
 var POSSIBLE_WORDS = ["javascript", "glass", "amazing", "pancake", "programming", "google", "developer", "apple", "python", "computer", "vault", "wizard",
-     "galaxy", "notebook", "keyboard", "route", "monitor", "laptop", "headphones", "charger", "internet"];
+     "galaxy", "notebook", "keyboard", "route", "monitor", "laptop", "headphones", "charger", "internet", "poopypants", "reznov", "sixseven", "cybersecurity", "menendez"];
 var MAX_GUESSES = 6;
 var word = "";
 var guesses = "";
