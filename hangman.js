@@ -1,4 +1,4 @@
-var Possible_Words = ["javascript", "glass", "amazing", "pancake", "programming", "google", "developer", "apple", "python", "computer", "vault", "wizard",
+var POSSIBLE_WORDS = ["javascript", "glass", "amazing", "pancake", "programming", "google", "developer", "apple", "python", "computer", "vault", "wizard",
      "galaxy", "notebook", "keyboard", "route", "monitor", "laptop", "headphones", "charger", "internet"];
 
 var word = "";
@@ -6,8 +6,8 @@ var guesses = "";
 
 function newGame() {
 
-    var randomIndex = parseInt(Math.random() * Possible_Words.length);
-    word = Possible_Words[randomIndex];
+    var randomIndex = parseInt(Math.random() * POSSIBLE_WORDS.length);
+    word = POSSIBLE_WORDS[randomIndex];
     guesses = "";
     updatePage();
 }
