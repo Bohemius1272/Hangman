@@ -4,6 +4,7 @@ var MAX_GUESSES = 6;
 var word = "";
 var guesses = "";
 var guess_count = MAX_GUESSES;
+var gameActive = false;
 
 function newGame() {
     var randomIndex = parseInt(Math.random() * POSSIBLE_WORDS.length);
@@ -11,15 +12,31 @@ function newGame() {
     console.log(`Word chosen was ${word}`);
     guesses = "";
     guess_count = MAX_GUESSES;
+    gameActive = true;
+    document.getElementById("guess").value = "";
     updatePage();
 }
 function guessLetter() {
+    if (!gameActive) {
+        return; // Don't allow guesses if game isn't active
+    }
+
     var input = document.getElementById("guess");
-    var letter = input.value;
+    var letter = input.value.toLowerCase();
+    
+    // Clear input field
+    input.value = "";
+    
+    // Don't process empty input or previously guessed letters
+    if (!letter || guesses.indexOf(letter) >= 0) {
+        return;
+    }
+
     if(word.indexOf(letter) < 0) {
         console.log(`Incorrect guess!`);
         guess_count--;
     }
+    
     console.log(`Current GuessCount: ${guess_count}`);
     guesses += letter;
     updatePage();
@@ -40,11 +57,22 @@ function updatePage() {
     var clue = document.getElementById("clue");
     clue.innerHTML = clueString;
     var guessArea = document.getElementById("guesses");
-    guessArea.innerHTML = "Guessed Letters: " + guesses;
+    var statusMessage = "";
+    
+    // Check for win condition
+    if (word && !clueString.includes("_")) {
+        statusMessage = "<div class='game-status win'>Congratulations! You've won!</div>";
+        gameActive = false;
+    }
+    // Check for lose condition
+    else if (guess_count === 0) {
+        statusMessage = "<div class='game-status lose'>Game Over! The word was: " + word + "</div>";
+        gameActive = false;
+    }
+    
+    guessArea.innerHTML = "Guessed Letters: " + guesses + statusMessage;
 
     var image = document.getElementById("hangmanImage");
     image.src = "images/hangman" + guess_count + ".gif";
-
-
 }
 

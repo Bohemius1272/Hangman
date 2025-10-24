@@ -11,3 +11,20 @@ body {
 #newgamearea {
     margin-top: 2em;
 }
+
+.game-status {
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.win {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.lose {
+    background-color: #ffcdd2;
+    color: #c62828;
+}
