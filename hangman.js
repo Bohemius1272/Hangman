@@ -18,16 +18,16 @@ function newGame() {
 }
 function guessLetter() {
     if (!gameActive) {
-        return; // Don't allow guesses if game isn't active
+        return; // don't allow guesses if game isn't active
     }
 
     var input = document.getElementById("guess");
     var letter = input.value.toLowerCase();
     
-    // Clear input field
+    // clear input field
     input.value = "";
     
-    // Don't process empty input or previously guessed letters
+    // don't process empty input or previously guessed letters
     if (!letter || guesses.indexOf(letter) >= 0) {
         return;
     }
@@ -59,14 +59,14 @@ function updatePage() {
     var guessArea = document.getElementById("guesses");
     var statusMessage = "";
     
-    // Check for win condition
+    // check for win condition
     if (word && !clueString.includes("_")) {
-        statusMessage = "<div class='game-status win'>Congratulations! You've won!</div>";
+        statusMessage = "<div class='game-status win'>You win! You are an epic gamer!</div>";
         gameActive = false;
     }
-    // Check for lose condition
+    // check for lose condition
     else if (guess_count === 0) {
-        statusMessage = "<div class='game-status lose'>Game Over! The word was: " + word + "</div>";
+        statusMessage = "<div class='game-status lose'>Game Over! The word was: " + word + ". YOU SUCK!</div>";
         gameActive = false;
     }
     

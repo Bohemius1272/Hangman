@@ -20,11 +20,11 @@ body {
 }
 
 .win {
-    background-color: #c8e6c9;
-    color: #2e7d32;
+    background-color: #006e04;
+    color: #ffffff;
 }
 
 .lose {
-    background-color: #ffcdd2;
-    color: #c62828;
+    background-color: #ff0019;
+    color: #ffffff;
 }
