@@ -11,7 +11,7 @@ function newGame() {
     guesses = "";
     updatePage();
 }
-function guessLetter() {
+function guess() {
     var input = document.getElementById("guess");
     var letter = input.value;
     guesses += letter;
