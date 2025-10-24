@@ -26,7 +26,7 @@ function updatePage() {
             clueString += currentLetter + " ";
         }
         else
-            clueString += " _ ";
+            clueString += "_ ";
     }
 
     var clue = document.getElementById("clue");
